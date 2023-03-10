@@ -8,8 +8,7 @@ defmodule Extr.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: Extr.Worker.start_link(arg)
-      # {Extr.Worker, arg}
+      {Bandit, plug: Extr.Endpoint}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
