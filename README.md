@@ -1,6 +1,14 @@
 # Extr
 
-**TODO: Add description**
+### Elixir Transmitted by Relays
+
+This is an implmention of a Nostr Relay in the Elixir programming language.
+
+Learn more about Elixir here: https://github.com/elixir-lang/elixir
+
+Learn more about nostr here: https://github.com/nostr-protocol/nostr
+
+Learn more about nips here: https://github.com/nostr-protocol/nips
 
 ## Installation
 
