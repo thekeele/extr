@@ -5,9 +5,26 @@ defmodule Extr.Application do
 
   use Application
 
+  @telemetry_events [
+    [:bandit, :request, :start],
+    [:bandit, :request, :stop],
+    [:bandit, :request, :exception],
+    [:bandit, :websocket, :start],
+    [:bandit, :websocket, :stop]
+  ]
+
   @impl true
   def start(_type, _args) do
+    :ok =
+      :telemetry.attach_many(
+        "extr-telemetry",
+        @telemetry_events,
+        &Extr.Telemetry.handle_event/4,
+        nil
+      )
+
     children = [
+      Extr.Telemetry.Metrics,
       {Bandit, plug: Extr.Endpoint}
     ]
 
